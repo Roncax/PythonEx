@@ -1,5 +1,6 @@
 # Load libraries
 import pandas
+import platform
 from pandas.plotting import scatter_matrix
 import matplotlib.pyplot as plt
 from sklearn import model_selection
@@ -13,10 +14,16 @@ from sklearn.discriminant_analysis import LinearDiscriminantAnalysis
 from sklearn.naive_bayes import GaussianNB
 from sklearn.svm import SVC
 
-# url = "https://raw.githubusercontent.com/jbrownlee/Datasets/master/iris.csv"
-path = "A:\Documents\Git Project\PythonEx\Iris.csv"
+os = platform.system()
+if os == "Linux":
+    path_linux = "/home/roncax/Documents/Git Project/PythonEx/iris.csv"
+elif os == "Windows":
+    path = "A:\Documents\Git Project\PythonEx\Iris.csv"
+else:
+    url = "https://raw.githubusercontent.com/jbrownlee/Datasets/master/iris.csv"
+
 names = ['sepal-length', 'sepal-width', 'petal-length', 'petal-width', 'class']
-dataset = pandas.read_csv(path, names=names)    # returned as two-dimensional data structure with labeled axes (as a matrix)
+dataset = pandas.read_csv(path_linux, names=names)    # returned as two-dimensional data structure with labeled axes (as a matrix)
 
 print(dataset.shape)        # In the example, 150 instances and 5 attributes
 print(dataset.head(20))     # Print the first 20 instances of the dataset
