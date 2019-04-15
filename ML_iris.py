@@ -36,7 +36,6 @@ dataset.hist()
 
 # scatter plot matrix
 scatter_matrix(dataset)
-plt.show()
 
 # split dataset 80% in train and 20% in validation
 array = dataset.values
