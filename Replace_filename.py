@@ -1,6 +1,7 @@
 import os
 
 # Replace a string in the name of a given tree folder with a string you want
+#TODO: only the file should update their name, with the directory it raise a problem with the path
 if __name__ == "__main__":
     print('Enter the Path of the files you want to change: ')
     myPath = input()
