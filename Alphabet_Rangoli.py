@@ -1,41 +1,15 @@
-import math
+import string
 
-def door_build(c, r):
-    row=[]
-    b = math.ceil(r/2 - 1)
-
-    for i in range(0, math.ceil(r/2)):
-        if i==b:
-            row.append(''.join(central_row(c)))
-        else:
-            row.append(''.join(build_row(i, c)))
-    x = row[0:b]
-    x.reverse()
-    for z in x:
-        row.append(z)
-    for e in row:
-        print(e)
-
-def central_row(n):
-    x = int(n/2)
-    row = ['-'] * (x - 3)
-    row.append('WELCOME')
-    row = row + ['-'] * (x-3)
-    return row
-
-def build_row(rownumber, n):
-    x = int(n / 2)
-    row = ['-'] * (x - rownumber*3-1)
-    row=row+['.|.']
-    row=row+['.|.']*int(rownumber)*2
-    row = row + ['-'] * (x - rownumber*3-1)
-    return row
-
+def print_rangoli(size):
+    alphabet = list(string.ascii_lowercase)
+    rangoli_door = []
+    for i in range(0, size-1):
+        right_string = ['-' + alphabet[s] for s in range(0,i)]
+        left_string = right_string[::-1]
+        porcoddio = left_string + list('-'+alphabet[size-i]) + right_string
+        print(''.join(porcoddio))
 
 if __name__ == '__main__':
-    print('Dammi la grandezza della porta: ')
-    n=int(input())
-    m=n*3
-    x = int(m)
-    door_build(m, n)
+    n = 10
+    print_rangoli(n)
 
